@@ -9,7 +9,7 @@ const char *WiFi_SSID = "CQUPT-3G";
 const char *WiFi_Password = "xxx";
 // Aida64 Config
 const char *PC_HOSTNAME = "xxx";
-const int PC_PORT = 8000;
+const int PC_PORT = 888;
 
 void setup()
 {

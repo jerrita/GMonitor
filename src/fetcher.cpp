@@ -5,7 +5,7 @@ String http_request;
 
 void fetcher_init()
 {
-    http_request = String("GET /") + " HTTP/1.1\r\n" +
+    http_request = String("GET /sse") + " HTTP/1.1\r\n" +
                    "Host: " + cli.remoteIP().toString() + "\r\n" +
                    "User-Agent: GMonitor v1.0 \r\n" +
                    "Connection: close\r\n" +
@@ -23,7 +23,7 @@ bool fetch_status()
 
     while (!cli.available())
         delay(100); // Wait for data
-
+    
     char buffer[512];
     cli.readBytes(buffer, 512);
     String s = String(buffer);
@@ -48,13 +48,13 @@ bool fetch_status()
 
     char cpu_temp[] = "CPU_TEMP";
     datStart = s.indexOf(cpu_temp) + strlen(cpu_temp);
-    datEnd = s.indexOf("˚C", datStart);
+    datEnd = s.indexOf("℃", datStart);
     datstr = s.substring(datStart, datEnd);
     status.cpu_temp = datstr.toInt();
 
     char gpu_temp[] = "GPU_TEMP";
     datStart = s.indexOf(gpu_temp) + strlen(gpu_temp);
-    datEnd = s.indexOf("˚C", datStart);
+    datEnd = s.indexOf("℃", datStart);
     datstr = s.substring(datStart, datEnd);
     status.gpu_temp = datstr.toInt();
 
