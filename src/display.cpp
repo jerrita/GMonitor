@@ -11,3 +11,13 @@ size_t d_printf(const char *format, ...)
     display.display();
     return r;
 }
+
+size_t c_printf(const char *format, ...)
+{
+    va_list va;
+    size_t r;
+    va_start(va, format);
+    r = display.printf(format, va);
+    va_end(va);
+    return r;
+}

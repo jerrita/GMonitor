@@ -18,7 +18,10 @@ struct PCStatus
 };
 
 // display.cpp
+// print and flush
 size_t d_printf(const char *, ...);
+// print to cache
+size_t c_printf(const char *, ...);
 
 // monitor.cpp
 void render_screen();

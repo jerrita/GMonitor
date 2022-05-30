@@ -3,3 +3,9 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+cmake-build-debug
+cmake-build-nodemcuv2
+CMakeListsPrivate.txt
+.idea
+
+include/config.h

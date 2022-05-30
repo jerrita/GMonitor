@@ -5,11 +5,11 @@ OLED display(D2, D1, NO_RESET_PIN, OLED::W_128, OLED::H_64);
 // Manage wifi and loop logic
 
 // WiFi Config
-const char *WiFi_SSID = "CQUPT-3G";
-const char *WiFi_Password = "pa5sw0rd";
+const char *WiFi_SSID = "Redrock";
+const char *WiFi_Password = "xxxx";
 // Aida64 Config
 const char *PC_HOSTNAME = "Jerrita-MSI";
-const int PC_PORT = 888;
+const int PC_PORT = 80;
 
 void setup()
 {
@@ -29,14 +29,14 @@ void setup()
     {
         delay(500);
         d_printf(".");
-        if (++i % 16 == 0)
-            d_printf("\n");
+        if (++i % 20 == 0)
+            c_printf("\n");
     }
 
-    d_printf("\nConnected. Init fetcher...");
+    d_printf("\nConnected. \nInit fetcher...");
     cli.connect(PC_HOSTNAME, PC_PORT);
     fetcher_init();
-    d_printf("\nFetcher initialized.\nGo mainlogic");
+    d_printf("\nFetcher initialized.\nGo main logic");
     display.setTTYMode(false);
 }
 
@@ -50,11 +50,15 @@ void loop()
         if (fetch_status())
             render_screen();
         else
-            d_printf("Fetch failed.\n");
+        {
+            c_printf("Fetch failed.\n");
+            c_printf("Client offline.\n");
+            c_printf("Waiting...");
+        }
     }
     else
     {
-        d_printf("WiFi loose.\nWaiting for reconnect.");
+        c_printf("WiFi loose.\nWaiting for reconnect.");
     }
     display.display();
 }
