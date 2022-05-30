@@ -5,11 +5,11 @@ OLED display(D2, D1, NO_RESET_PIN, OLED::W_128, OLED::H_64);
 // Manage wifi and loop logic
 
 // WiFi Config
-const char *WiFi_SSID = "Redrock";
-const char *WiFi_Password = "xxxx";
+const char *WiFi_SSID = "CQUPT-3G";
+const char *WiFi_Password = "xxx";
 // Aida64 Config
-const char *PC_HOSTNAME = "Jerrita-MSI";
-const int PC_PORT = 80;
+const char *PC_HOSTNAME = "xxx";
+const int PC_PORT = 8000;
 
 void setup()
 {

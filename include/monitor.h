@@ -4,6 +4,13 @@
 #include <ESP8266WiFi.h>
 #include <oled.h>
 
+// print to screen
+#define d_printf(f_, ...)              \
+    display.printf(f_, ##__VA_ARGS__); \
+    display.display()
+// print to screen cache
+#define c_printf(f_, ...) display.printf(f_, ##__VA_ARGS__)
+
 struct PCStatus
 {
     // CPU
@@ -16,12 +23,6 @@ struct PCStatus
     int gpu_freq;
     int gpu_temp;
 };
-
-// display.cpp
-// print and flush
-size_t d_printf(const char *, ...);
-// print to cache
-size_t c_printf(const char *, ...);
 
 // monitor.cpp
 void render_screen();

@@ -25,9 +25,9 @@ bool fetch_status()
         delay(100); // Wait for data
 
     char buffer[512];
-    size_t n_buffer;
-    n_buffer = cli.readBytes(buffer, 512);
+    cli.readBytes(buffer, 512);
     String s = String(buffer);
+    Serial.println("Recv.");
 
     // Parse buffer to PCStatus status
     // and fill status body
@@ -48,13 +48,13 @@ bool fetch_status()
 
     char cpu_temp[] = "CPU_TEMP";
     datStart = s.indexOf(cpu_temp) + strlen(cpu_temp);
-    datEnd = s.indexOf("℃", datStart);
+    datEnd = s.indexOf("˚C", datStart);
     datstr = s.substring(datStart, datEnd);
     status.cpu_temp = datstr.toInt();
 
     char gpu_temp[] = "GPU_TEMP";
     datStart = s.indexOf(gpu_temp) + strlen(gpu_temp);
-    datEnd = s.indexOf("℃", datStart);
+    datEnd = s.indexOf("˚C", datStart);
     datstr = s.substring(datStart, datEnd);
     status.gpu_temp = datstr.toInt();
 
@@ -69,6 +69,8 @@ bool fetch_status()
     datEnd = s.indexOf("%", datStart);
     datstr = s.substring(datStart, datEnd);
     status.gpu_usage = datstr.toInt();
+
+    Serial.println("Processed.\n");
 
     return true;
 }
