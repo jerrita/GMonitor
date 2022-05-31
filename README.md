@@ -14,8 +14,10 @@
 - 之后板子可以独立与电脑插电运行
 
 ## 电脑端设置方式
-> 待更新
+- 按版本号
+导入 `res` 目录下的 `rslcd` 文件
+- 打开 `RemoteSensor`
 
 ## 效果图
 
-![](pic/effect.jpg)
+![](pic/effect.png)

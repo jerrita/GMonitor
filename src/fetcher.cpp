@@ -72,13 +72,13 @@ bool fetch_status()
 
     char cpu_power[] = "CPU_POWER";
     datStart = s.indexOf(cpu_power) + strlen(cpu_power);
-    datEnd = s.indexOf("%", datStart);
+    datEnd = s.indexOf("W", datStart);
     datstr = s.substring(datStart, datEnd);
     status.cpu_power = datstr.toFloat();
 
     char gpu_power[] = "GPU_POWER";
     datStart = s.indexOf(gpu_power) + strlen(gpu_power);
-    datEnd = s.indexOf("%", datStart);
+    datEnd = s.indexOf("W", datStart);
     datstr = s.substring(datStart, datEnd);
     status.gpu_power = datstr.toFloat();
 
