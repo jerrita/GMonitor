@@ -17,11 +17,13 @@ struct PCStatus
     int cpu_usage;
     int cpu_freq;
     int cpu_temp;
+    float cpu_power;
 
     // GPU
     int gpu_usage;
     int gpu_freq;
     int gpu_temp;
+    float gpu_power;
 };
 
 // monitor.cpp

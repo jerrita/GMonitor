@@ -6,14 +6,15 @@ OLED display(D2, D1, NO_RESET_PIN, OLED::W_128, OLED::H_64);
 
 // WiFi Config
 const char *WiFi_SSID = "CQUPT-3G";
-const char *WiFi_Password = "xxx";
+const char *WiFi_Password = "pa5sw0rd";
 // Aida64 Config
-const char *PC_HOSTNAME = "xxx";
+const char *PC_HOSTNAME = "Jerrita-MSI";
 const int PC_PORT = 888;
 
 void setup()
 {
-    // Initialize
+    // Initialize, there has some bugs that u need begin twice
+    display.begin();
     display.begin();
     display.setTTYMode(true);
     Serial.begin(9600); // For debug

@@ -21,9 +21,9 @@ void show_persentage(int a)
 // Render screen with PCStatus status
 void render_screen()
 {
-    c_printf("CPU: %d %%\n     %d MHz\n     %d Cel\n", status.cpu_usage, status.cpu_freq, status.cpu_temp);
+    c_printf("CPU:%3d %%    %6.2f W\n     %d MHz\n     %d Cel\n", status.cpu_usage, status.cpu_power, status.cpu_freq, status.cpu_temp);
     show_persentage(status.cpu_usage);
-    c_printf("\nGPU: %d %%\n     %d MHz\n     %d Cel\n", status.gpu_usage, status.gpu_freq, status.gpu_temp);
+    c_printf("\nGPU:%3d %%    %6.2f W\n     %d MHz\n     %d Cel\n", status.gpu_usage, status.gpu_power, status.gpu_freq, status.gpu_temp);
     show_persentage(status.gpu_usage);
     // c_printf(WiFi.localIP().toString().c_str());
 }
